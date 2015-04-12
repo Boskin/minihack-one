@@ -12,12 +12,12 @@ function init() {
   
   document.addEventListener('mousedown', onClick);
   document.addEventListener('mousemove', radiusAdjustment);
-  document.addEventListener('keyup', reverse);
+  document.addEventListener('keydown', reverse);
 }
 
 function setScore(val) {
   score = val;
-  document.getElementById('score').innerHTML = 'Score: ' + score;;
+  document.getElementById('score').innerHTML = 'Score: ' + score;
 }
 
 function setup() {
@@ -28,6 +28,7 @@ function setup() {
 
 function reverse(evt) {
   if(evt.keyCode == 32) {
+    evt.preventDefault();
     cannonBall.rotateMultiplier *= -1;
   }
 }
